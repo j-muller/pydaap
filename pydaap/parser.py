@@ -2,6 +2,9 @@ import string
 
 from .reader import DaapNumericReader
 from .request import DaapStringIO
+from .exception import DmapFieldNotFound
+
+
 class DmapFieldType(object):
     """This class is just a simple enum
     Returns the content type of each instruction
@@ -20,10 +23,6 @@ class DmapFieldType(object):
         without an instance"""
         def __getattr__(self, name):
             return self.values.index(name)
-
-class DmapFieldNotFound(Exception):
-    """Raised when DMAP field type extracted from buffer is not implemented
-    """
 
 class DmapInstruction(object):
     """Get content type and verbose name of a dmap instruction

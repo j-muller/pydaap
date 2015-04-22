@@ -1,0 +1,9 @@
+site_name: Pydaap
+theme: readthedocs
+pages:
+    - [index.md, Home]
+    - [daap.md, Daap]
+    - [parser.md, Parser]
+    - [reader.md, Reader]
+    - [request.md, Request]
+    - [exception.md, Exception]

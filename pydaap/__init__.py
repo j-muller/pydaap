@@ -4,3 +4,4 @@ from .daap import Daap
 from .request import DaapRequest
 from .parser import DaapParser
 from .reader import DaapNumericReader
+from .exception import (ConnectionRefused, HTTPError, DmapFieldNotFound)

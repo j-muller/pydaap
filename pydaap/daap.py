@@ -12,13 +12,14 @@ class Daap(object):
 
     This class creates a DAAP object to request our DAAP server.
     """
-    def __init__(self, pairing_code, host='127.0.0.1', port=3689):
-        # DAAP server host
-        self.host = host
-        # DAAP server port
-        self.port = port
+    def __init__(self, pairing_code=None, **kwargs):
         # DAAP pairing code
         self.pairing_code = pairing_code
+
+        # DAAP server host
+        self.host = kwargs.get('host', '127.0.0.1')
+        # DAAP server port
+        self.port = kwargs.get('port', 3689)
 
         # Request object
         self.req = DaapRequest(self.pairing_code, self.host, self.port)
@@ -26,13 +27,9 @@ class Daap(object):
     def server_info(self):
         resp = self.req.get('server-info')
 
-        import json
-
-        print json.dumps(DaapParser.parse(resp), indent=4)
+        return DaapParser.parse(resp)
 
     def content_codes(self):
         resp = self.req.get('content-codes')
 
-        import json
-
-        print json.dumps(DaapParser.parse(resp), indent=4)
+        return DaapParser.parse(resp)
