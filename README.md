@@ -13,7 +13,7 @@ Feel free to fork this, it has been done to do this. :-)
 
 ## Basic usage
 
-```
+```python
 >>> import json
 >>> from pydaap import Daap
 >>> d = Daap() # will connect to default host and port
